@@ -1,24 +1,19 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { useFormHooks } from "./Hooks/FormHooks";
+import { InputForm } from "./Input/InputForm";
+import { OutputForm } from "./Output/OutputForm";
 
 function App() {
+  const { inputs, handleInputChange, handleFinal, final } = useFormHooks();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container mt-4">
+      <InputForm
+        title="Leaderboard"
+        inputs={inputs}
+        handleInputChange={handleInputChange}
+        handleFinal={handleFinal}
+      />
+      <OutputForm final={final} />
     </div>
   );
 }
